@@ -68,4 +68,8 @@ public class EntradaRecital extends Entrada{
 	public void setGenero(EGeneroMusical genero) {
 		this.genero = genero;
 	}	
+	
+	@Override
+	public void calcularValor() {
+	}
 }

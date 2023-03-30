@@ -30,4 +30,8 @@ public class EntradaTeatro  extends Entrada {
 		ListIterator<Actor> ite = listaActores.listIterator();
 		while(ite.nextIndex()<3 && ite.hasNext()) {actores.add(ite.next());}
 	}
+	
+	@Override
+	public void calcularValor() {
+	}
 }

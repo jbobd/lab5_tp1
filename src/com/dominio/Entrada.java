@@ -64,5 +64,17 @@ public abstract class Entrada {
 		return valor;
 	}
 	
+	//Metodo ToString
+	@Override
+	public String toString() {
+		return "ID Entrada: " + ID + "\n"
+				+ "Nombre del show: " + nombre + "\n"
+				+ "Fecha: " + fecha.toString() + "\n"
+				+ "Horario: " + horario.toString() + "\n"
+				+ "Duracion: " + duracion.toString() + "\n"
+				+ "Valor: $" + valor + "\n";
+			}
+	
+	public abstract void calcularValor();
 	
 }

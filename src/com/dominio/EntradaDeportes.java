@@ -30,4 +30,7 @@ public class EntradaDeportes extends Entrada {
 		this.deporte = deporte;
 	}
 	
+	@Override
+	public void calcularValor() {
+	}
 }
