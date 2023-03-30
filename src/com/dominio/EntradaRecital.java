@@ -69,7 +69,31 @@ public class EntradaRecital extends Entrada{
 		this.genero = genero;
 	}	
 	
+	///METODO QUE CALCULA EL VALOR TENIENDO EN CUENTA SI ES VIP O NO
 	@Override
 	public void calcularValor() {
+		if(esVip) {
+			this.setValor(1500);
+		}else {
+			this.setValor(800);
+		}
+	}	
+	
+	///METODO QUE DEVUELVE UN STRING CON TODOS LOS DATOS DE LA ENTRADA
+	@Override
+	public String toString() {
+
+		String listaBandas = new String();
+		ListIterator<Banda> ite = this.bandas.listIterator();
+		while(ite.hasNext()) {listaBandas += ite.next().toString() + " | ";}
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("Vip: " + (esVip ? "Si" : "No") + "\n");
+		sb.append("Genero: " + this.genero.name() + "\n");
+		sb.append("Banda Principal: " + bandaPrincipal + "\n");
+		sb.append("Bandas Soporte: " + listaBandas + "\n");
+
+		return sb.toString();
 	}
 }
