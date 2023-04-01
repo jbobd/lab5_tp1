@@ -5,22 +5,24 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
+import com.dominio.enums.EGeneroTeatro;
+
 public class EntradaTeatro  extends Entrada {
 
-	private generoTeatro genero;
+	private EGeneroTeatro genero;
 	private ArrayList<Actor> actores = new ArrayList<Actor>();
 	
-	public EntradaTeatro(generoTeatro genero, ArrayList<Actor> actores, String nombre,
+	public EntradaTeatro(EGeneroTeatro genero, ArrayList<Actor> actores, String nombre,
 			Time horario, Date fecha, Time duracion) 
 		{
 			super(nombre, horario, fecha, duracion);
 			this.genero = genero;
 			this.setActores(actores);
 		}
-	public generoTeatro getGenero() {
+	public EGeneroTeatro getGenero() {
 		return genero;
 	}
-	public void setGenero(generoTeatro genero) {
+	public void setGenero(EGeneroTeatro genero) {
 		this.genero = genero;
 	}
 	public ArrayList<Actor> getActores() {
@@ -33,5 +35,6 @@ public class EntradaTeatro  extends Entrada {
 	
 	@Override
 	public void calcularValor() {
+		this.setValor(1350.50);
 	}
 }
