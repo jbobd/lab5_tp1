@@ -37,4 +37,13 @@ public class EntradaTeatro  extends Entrada {
 	public void calcularValor() {
 		this.setValor(1350.50);
 	}
+	
+	@Override
+	public String toString() {
+		ListIterator<Actor> ite = actores.listIterator();
+		String lista = new String();
+		while(ite.hasNext()) {lista += ite.next().toString();} 
+		return super.toString() + "Genero: " + genero.name() + "\n" 
+			 + "Actores: " + lista + "\n";
+	}
 }
