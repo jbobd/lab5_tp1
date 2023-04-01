@@ -31,5 +31,10 @@ public class Banda {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}	
+	}
+	
+	//Metodo ToString
+		public String toString() {
+			return nombre;
+				}
 }
