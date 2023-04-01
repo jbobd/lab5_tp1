@@ -11,7 +11,7 @@ public class EntradaDeportes extends Entrada {
 	
 	/// constructores
 	public EntradaDeportes(){}
-	/// Orden: Internacional, tipo de deporte, nombre de evento, horario, fecha, duración.
+	/// Orden: Internacional, tipo de deporte, nombre de evento, horario, fecha, duraciï¿½n.
 	public EntradaDeportes(boolean internacional, ETipoDeporte deporte, String nombre, Time horario, Date fecha, Time duracion){
 		super(nombre, horario, fecha, duracion);
 		this.deporte=deporte;
@@ -30,7 +30,7 @@ public class EntradaDeportes extends Entrada {
 	public void setDeporte(ETipoDeporte deporte) {
 		this.deporte = deporte;
 	}
-	/// Calcula valor de la entrada en función del deporte y el tipo de evento
+	/// Calcula valor de la entrada en funciï¿½n del deporte y el tipo de evento
 	@Override
 	public void calcularValor() {
 		this.setValor(0);
@@ -39,11 +39,16 @@ public class EntradaDeportes extends Entrada {
 		if(deporte.name().equalsIgnoreCase(ETipoDeporte.HOCKEY.name())){this.setValor(380);}
 		if(internacional) {this.setValor(getValor()*1.3);}
 	}
-	/// Metodo toString() con llamado al mismo método de Entrada
+	/// Metodo toString() con llamado al mismo mï¿½todo de Entrada
 	@Override
 	public String toString() {
-		return super.toString() +
-			   "Es internacional: " + (internacional ? "Si" : "No") + "\n" +
-			   "Deporte: " + deporte.name() + "\n";
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		
+		sb.append("Es internacional: " + (internacional ? "Si" : "No") + "\n");
+		sb.append("Deporte: " + deporte.name() + "\n");
+
+		return sb.toString();
 	}
 }

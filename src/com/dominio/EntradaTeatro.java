@@ -43,7 +43,13 @@ public class EntradaTeatro  extends Entrada {
 		ListIterator<Actor> ite = actores.listIterator();
 		String lista = new String();
 		while(ite.hasNext()) {lista += ite.next().toString();} 
-		return super.toString() + "Genero: " + genero.name() + "\n" 
-			 + "Actores: " + lista + "\n";
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		
+		sb.append("Genero: " + genero.name() + "\n");
+		sb.append("Actores: " + lista + "\n");
+
+		return sb.toString();
 	}
 }

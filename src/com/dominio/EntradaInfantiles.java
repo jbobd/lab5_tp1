@@ -16,6 +16,7 @@ public class EntradaInfantiles extends Entrada {
 		this.mayor=mayor;
 		this.souvenir=souvenir;
 	}
+	
 	@Override
 	public void calcularValor() {
 		if(mayor) {
@@ -41,8 +42,13 @@ public class EntradaInfantiles extends Entrada {
 	}
 	@Override
 	public String toString() {
-		return 	super.toString() +
-				"Es mayor: " + (mayor ? "Si" : "No")+ "\n"
-				+ "Souvenir: " + (souvenir ? "Si" : "No") + "\n";
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		
+		sb.append("Es mayor: " + (mayor ? "Si" : "No")+ "\n");
+		sb.append("Souvenir: " + (souvenir ? "Si" : "No") + "\n");
+
+		return sb.toString();
 	}
 }
