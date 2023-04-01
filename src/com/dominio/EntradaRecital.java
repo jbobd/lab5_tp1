@@ -72,11 +72,7 @@ public class EntradaRecital extends Entrada{
 	///METODO QUE CALCULA EL VALOR TENIENDO EN CUENTA SI ES VIP O NO
 	@Override
 	public void calcularValor() {
-		if(esVip) {
-			this.setValor(1500);
-		}else {
-			this.setValor(800);
-		}
+		this.setValor(esVip ? 1500 : 800);
 	}	
 	
 	///METODO QUE DEVUELVE UN STRING CON TODOS LOS DATOS DE LA ENTRADA

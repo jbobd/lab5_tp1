@@ -12,6 +12,8 @@ public class EntradaTeatro  extends Entrada {
 	private EGeneroTeatro genero;
 	private ArrayList<Actor> actores = new ArrayList<Actor>();
 	
+	/// constructores
+	/// Orden: Genero, Lista actores, nombre de evento, horario, fecha, duracion.
 	public EntradaTeatro(EGeneroTeatro genero, ArrayList<Actor> actores, String nombre,
 			Time horario, Date fecha, Time duracion) 
 		{
@@ -19,6 +21,8 @@ public class EntradaTeatro  extends Entrada {
 			this.genero = genero;
 			this.setActores(actores);
 		}
+	
+	///GETTERS Y SETTERS
 	public EGeneroTeatro getGenero() {
 		return genero;
 	}
@@ -28,16 +32,19 @@ public class EntradaTeatro  extends Entrada {
 	public ArrayList<Actor> getActores() {
 		return actores;
 	}
+	/// setActores permite un máximo de tres actores 
 	public void setActores(ArrayList<Actor> listaActores) {
 		ListIterator<Actor> ite = listaActores.listIterator();
 		while(ite.nextIndex()<3 && ite.hasNext()) {actores.add(ite.next());}
 	}
 	
+	///Asigna valor fijo a la entrada
 	@Override
 	public void calcularValor() {
 		this.setValor(1350.50);
 	}
 	
+	/// Metodo toString() con llamado al mismo metodo de Entrada
 	@Override
 	public String toString() {
 		ListIterator<Actor> ite = actores.listIterator();

@@ -17,13 +17,10 @@ public class EntradaInfantiles extends Entrada {
 		this.souvenir=souvenir;
 	}
 	
+	///METODO QUE ASIGNA UNO DE LOS DOS VALORES POSIBLES
 	@Override
 	public void calcularValor() {
-		if(mayor) {
-			this.setValor(500);
-		}else {
-			this.setValor(250);
-		}
+		this.setValor(mayor ? 500 : 250);
 	}
 
 	// SETTERS Y GETTERS
@@ -40,6 +37,8 @@ public class EntradaInfantiles extends Entrada {
 	public boolean getSouvenir() {
 		return souvenir;
 	}
+	
+	///METODO QUE DEVUELVE UN STRING CON TODOS LOS DATOS DE LA ENTRADA
 	@Override
 	public String toString() {
 

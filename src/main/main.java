@@ -3,6 +3,7 @@ package main;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 import com.dominio.Actor;
 import com.dominio.Banda;
@@ -21,6 +22,8 @@ public class main {
 
 	public static void main(String[] args) {
 		
+		ArrayList<Entrada> listaEntradas = new ArrayList<Entrada>();
+		
 		/// ENTRADAS INFANTILES
 		/// Constructor: MAYOR, SOUVENIR, NOMBRE, HORARIO, FECHA, DURACION
 		Entrada ticket1 = new EntradaInfantiles(
@@ -31,6 +34,7 @@ public class main {
 							   Date.valueOf("2023-03-27"), 
 							   Time.valueOf("1:00:00")
 							   );
+		listaEntradas.add(ticket1);
 
 		Entrada ticket2 = new EntradaInfantiles(
 							   false,
@@ -40,6 +44,7 @@ public class main {
 							   Date.valueOf("2023-03-29"), 
 							   Time.valueOf("2:00:00")
 							   );
+		listaEntradas.add(ticket2);
 		
 		/// PRECARGA DE ACTORES EN LISTA
 		ArrayList<Actor> listaActores = new ArrayList<Actor>();
@@ -59,6 +64,7 @@ public class main {
 							   Date.valueOf("2023-03-29"), 
 							   Time.valueOf("2:00:00")
 							   );
+		listaEntradas.add(ticket3);
 		
 		/// PRECARGA DE BANDAS EN LISTA
 		Banda bandaPrincipal1 = new Banda("La Renga");
@@ -82,7 +88,7 @@ public class main {
 								Date.valueOf("2023-03-30"), 
 								Time.valueOf("4:00:00")
 								);
-		
+		listaEntradas.add(ticket4);
 		
 		Entrada ticket5 = new EntradaRecital(
 								false,
@@ -94,7 +100,8 @@ public class main {
 								Date.valueOf("2023-04-02"), 
 								Time.valueOf("4:00:00")
 								);
-
+		listaEntradas.add(ticket5);
+		
 		/// ENTRADAS DEPORTES
 		/// Constructor: INTERNACIONAL, DEPORTE, NOMBRE, HORARIO, FECHA, DURACION
 		Entrada ticket6 = new EntradaDeportes(
@@ -105,6 +112,7 @@ public class main {
 								Date.valueOf("2023-04-02"), 
 								Time.valueOf("2:00:00")
 								);
+		listaEntradas.add(ticket6);
 		
 		Entrada ticket7 = new EntradaDeportes(
 								true,
@@ -114,6 +122,7 @@ public class main {
 								Date.valueOf("2023-04-02"), 
 								Time.valueOf("4:00:00")
 								);
+		listaEntradas.add(ticket7);
 		
 		Entrada ticket8 = new EntradaDeportes(
 								false,
@@ -123,6 +132,7 @@ public class main {
 								Date.valueOf("2023-04-02"), 
 								Time.valueOf("4:00:00")
 								);
+		listaEntradas.add(ticket8);
 		
 		Entrada ticket9 = new EntradaDeportes(
 								false,
@@ -132,17 +142,15 @@ public class main {
 								Date.valueOf("2023-04-02"), 
 								Time.valueOf("4:00:00")
 								);
-
-		IGenerarEntrada Negocio = new GenerarEntrada();
+		listaEntradas.add(ticket9);
+				
 		/// CREACION DE ENTRADAS
-		Negocio.crearEntrada(ticket1);		
-		Negocio.crearEntrada(ticket2);
-		Negocio.crearEntrada(ticket3);		
-		Negocio.crearEntrada(ticket4);		
-		Negocio.crearEntrada(ticket5);		
-		Negocio.crearEntrada(ticket6);		
-		Negocio.crearEntrada(ticket7);		
-		Negocio.crearEntrada(ticket8);		
-		Negocio.crearEntrada(ticket9);		
+		IGenerarEntrada Negocio = new GenerarEntrada();
+		ListIterator<Entrada> ite = listaEntradas.listIterator();
+		
+		while(ite.hasNext()) {
+			Negocio.crearEntrada(ite.next());	
+			System.out.println("-------------------------------------------" + "\n");
+		}
 	}
 }
